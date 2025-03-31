@@ -12,8 +12,8 @@
     "start": "node dist/index.js",
     "dev": "mcp dev npx ts-node-esm src/index.ts",
     "prepare": "npm run build",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "test:watch": "jest --watch"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --config jest.config.js",
+    "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --config jest.config.js --watch"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.1",
