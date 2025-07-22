@@ -9,11 +9,24 @@ A powerful tool for analyzing, planning, and enhancing projects with MCP (Model 
 - **Project Enhancement**: Suggests and adds MCP tools based on new requirements
 - **Smart Detection**: Identifies project features like authentication, databases, APIs, and more
 - **Configurable**: Customizable scanning limits and detection rules
+- **Cursor Integration**: Works as an MCP server within the Cursor editor
 
 ## Installation
 
+### As a global command-line tool:
+
 ```bash
 npm install -g mcp-analyzer
+```
+
+### For use with Cursor:
+
+```bash
+# Install globally to use with Cursor
+npm install -g mcp-analyzer
+
+# Configure Cursor to use mcp-analyzer
+# Cursor will automatically detect the MCP server
 ```
 
 ## Usage
@@ -41,6 +54,41 @@ Add new MCP tools to an existing project:
 ```bash
 mcp-analyzer enhance /path/to/project "Add real-time features and testing infrastructure"
 ```
+
+## Cursor Integration
+
+MCP Analyzer can be used directly within the Cursor editor as an MCP server, providing in-editor project analysis, planning, and enhancement capabilities.
+
+### Setting Up Cursor Integration
+
+1. Install MCP Analyzer globally:
+   ```bash
+   npm install -g mcp-analyzer
+   ```
+
+2. Restart Cursor or reload the window
+
+3. Cursor will automatically detect the MCP server. You should see "cursor-project-assistant" in the list of available MCP tools.
+
+### Using MCP Analyzer in Cursor
+
+Once configured, you can use the MCP Analyzer tools directly in Cursor:
+
+1. Open Cursor editor
+2. Access the MCP menu (typically in the bottom bar or through the command palette)
+3. Select "cursor-project-assistant"
+4. Choose one of the available tools:
+   - `analyze_project`: To analyze your current project
+   - `plan_project`: To plan a new project with appropriate MCP tools
+   - `enhance_project`: To enhance your project with new MCP tools based on new requirements
+
+### Example Prompts
+
+You can use the following prompts in Cursor:
+
+- "Analyze my current project to recommend MCP tools"
+- "I want to create a new React Native application with authentication and Firebase integration. Help me plan the project structure."
+- "I need to add real-time chat functionality to my MERN stack app. Suggest MCP tools that can help."
 
 ## Configuration
 
@@ -99,13 +147,14 @@ npm run dev
 mcp-analyzer/
 ├── src/
 │   ├── config/           # Configuration files
-│   ├── types/           # TypeScript type definitions
-│   ├── utils/           # Utility functions
+│   ├── types/            # TypeScript type definitions
+│   ├── utils/            # Utility functions
 │   ├── project-analyzer.ts
 │   ├── project-planner.ts
 │   ├── project-enhancer.ts
-│   └── index.ts
-├── tests/               # Test files
+│   └── index.ts          # MCP server entry point
+├── tests/                # Test files
+├── cursor-mcp.json       # Cursor MCP configuration
 ├── package.json
 ├── tsconfig.json
 └── README.md

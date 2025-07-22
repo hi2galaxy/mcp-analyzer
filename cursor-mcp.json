@@ -1,0 +1,50 @@
+{
+  "name": "mcp-analyzer",
+  "description": "MCP server for analyzing, planning, and enhancing projects with MCP tools",
+  "version": "0.1.0",
+  "author": "Jin",
+  "homepage": "https://github.com/hi2galaxy/mcp-analyzer",
+  "license": "MIT",
+  "serverPath": "dist/index.js",
+  "serverArgs": ["serve"],
+  "tools": [
+    {
+      "name": "analyze_project",
+      "description": "Analyzes an existing project directory to recommend MCP tools and configurations",
+      "parameters": {
+        "projectPath": {
+          "type": "string",
+          "description": "Path to the project directory to analyze"
+        }
+      }
+    },
+    {
+      "name": "plan_project",
+      "description": "Recommends MCP tools based on a description of a planned project",
+      "parameters": {
+        "projectDescription": {
+          "type": "string",
+          "description": "Detailed description of the planned project"
+        },
+        "projectPath": {
+          "type": "string",
+          "description": "Path where the project will be created"
+        }
+      }
+    },
+    {
+      "name": "enhance_project",
+      "description": "Adds MCP tools to an existing project based on new requirements",
+      "parameters": {
+        "projectPath": {
+          "type": "string",
+          "description": "Path to the existing project"
+        },
+        "newRequirements": {
+          "type": "string",
+          "description": "Description of the new requirements or features"
+        }
+      }
+    }
+  ]
+} 
